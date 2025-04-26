@@ -24,3 +24,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard',[UserController::class,'index'])->name('dashboard');
 });
+
+Route::middleware(['auth','user'])->group(function(){
+    Route::get('/user_dashboard',[UserController::class,'dashboard']);
+});

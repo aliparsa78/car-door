@@ -12,7 +12,13 @@ class UserController extends Controller
         if(Auth::user()->user_type==='user'){
             return view('Frontend.index');
         }else{
+           
             return view('Backend.index');
         }
+    }
+
+    public function dashboard(Request $request)
+    {
+        return "user dashboard";
     }
 }

@@ -32,7 +32,17 @@
                                
                                 <li><a href="contact.html">Contact</a></li>
                                 @if(Auth::user())
-                                <li><a href="login">Dashboard</a></li>
+                                <li><a href="#">{{Auth::user()->name}}</a>
+                                    <ul>
+                                        <li><a href="car-left-sidebar.html">Profile</a></li>
+                                        <li><a href="car-right-sidebar.html">Dashboard</a></li>
+                                        <li><a id="logout-btn" href="#">Sign Out</a>
+                                            <form id="logout-form" action="{{route('logout')}}" method="POST" style="display:none">
+                                                @csrf
+                                            </form>
+                                    </li>
+                                    </ul>
+                                </li>
                                 @else
                                 <li><a href="login">Sign in</a></li>
                                 <li><a href="register">Sign up</a></li>
@@ -46,3 +56,10 @@
         </div>
         <!--== Header Bottom End ==-->
     </header>
+
+    <script>
+        document.getElementById('logout-btn').addEventListener('click',function(e){
+            e.preventDefault();
+            document.getElementById('logout-form').submit();
+        });
+    </script>
