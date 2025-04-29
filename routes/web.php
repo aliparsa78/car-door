@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CarCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,9 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('Frontend.index');
 });
+Route::get('/404',function(){
+    return view('/404');
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -27,4 +31,8 @@ Route::middleware([
 
 Route::middleware(['auth','user'])->group(function(){
     Route::get('/user_dashboard',[UserController::class,'dashboard']);
+});
+// Admin routes
+Route::middleware(['auth','admin'])->group(function(){
+    Route::resource('car_category',CarCategoryController::class);
 });
