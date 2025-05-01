@@ -67,7 +67,9 @@ class CarController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $car = Car::find($id);
+        $categories = CarCategory::get();
+        return view('Backend/Car/edit',compact('car','categories'));
     }
 
     /**
@@ -75,7 +77,24 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $car = Car::find($id);
+        $car->category_id = $request->category_id;
+        $car->car_name = $request->car_name;
+        $car->car_model = $request->car_model;
+        $car->car_color = $request->car_color;
+        $car->plate_number = $request->plate_number;
+        $car->details = $request->details;
+        $car->price_perday = $request->price_perday;
+        $car->city = $request->city;
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $filename = time().'_'.$image->getClientOriginalName();
+            $filePath=$image->storeAs('CarsImage', $filename , 'public');
+            $car->photo = $filename;
+        }
+        $car->save();
+        return redirect('/cars')->with('success','Car information has been added successfuly ');
+
     }
 
     /**

@@ -62,9 +62,10 @@
                             <td style="max-width: 200px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap;"> {{$car->details}} </td>
                             <td> {{$car->price_perday}} </td>
                             <td> {{$car->city}} </td>
+                            <td> <a href="{{route('cars.edit',$car->id)}}" class="btn btn-info">Edit</a> </td>
                            
                           </tr>
-                    @endforeach
+                         @endforeach
                         </tbody>
                       </table>
                     </div>
