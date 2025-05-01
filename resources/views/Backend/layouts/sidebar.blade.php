@@ -91,7 +91,7 @@
             <div class="collapse" id="form">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{route('car_category.create')}}">Add Car Category</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Add Car</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('cars.create')}}">Add Car</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
               </ul>
             </div>
@@ -108,7 +108,7 @@
             <div class="collapse" id="list">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="car_category">Car Category</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Add Car</a></li>
+                <li class="nav-item"> <a class="nav-link" href="cars"> Cars </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
               </ul>
             </div>

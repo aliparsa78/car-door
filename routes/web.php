@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarCategoryController;
+use App\Http\Controllers\CarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +37,5 @@ Route::middleware(['auth','user'])->group(function(){
 // Admin routes
 Route::middleware(['auth','admin'])->group(function(){
     Route::resource('car_category',CarCategoryController::class);
+    Route::resource('cars',CarController::class);
 });
