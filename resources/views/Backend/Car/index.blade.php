@@ -1,5 +1,8 @@
 <base href="{{asset('public')}}">
 <style>
+    .table{
+        margin-right: 40px;
+    }
     .table thead tr th, td {
         color: white
     }
@@ -10,16 +13,11 @@
             <!-- partial:partials/_navbar.html -->
            @section('content')
         <!-- partial -->
-        <div class="main-panel">
+        <div class="main-panel mr-5">
           <div class="content-wrapper">
             <div class="page-header">
               <h3 class="page-title"> Car Tables  </h3>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
-                </ol>
-              </nav>
+              
             </div>
             <div class="row">
             
@@ -27,8 +25,12 @@
               
               <div class="col-lg-11 grid-margin stretch-card pr-4 ">
                 <div class="card ">
+                    <div class="card-header">
+                  <a href="{{route('cars.create')}}" class="text-right  btn btn-info" style=" float:right; margin-right: 4rem;"> <i class="mdi mdi-car"></i> Add new Car</a>
+
+                  <h4 class="card-title">Cars table</h4>
+                    </div>
                   <div class="card-body ">
-                    <h4 class="card-title">Bordered table</h4>
                     </p>
                     <div class="table-responsive ">
                       <table class="table table-bordered ">
@@ -63,7 +65,13 @@
                             <td> {{$car->price_perday}} </td>
                             <td> {{$car->city}} </td>
                             <td> <a href="{{route('cars.edit',$car->id)}}" class="btn btn-info">Edit</a> </td>
-                           
+                            <td>
+                                <form action="{{route('cars.destroy',$car->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" >Delete</button>
+                                </form>
+                            </td>
                           </tr>
                          @endforeach
                         </tbody>

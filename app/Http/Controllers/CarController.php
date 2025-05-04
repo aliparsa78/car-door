@@ -46,7 +46,7 @@ class CarController extends Controller
             $filePath=$image->storeAs('CarsImage', $filename , 'public');
             $car->photo = $filename;
             $car->save();
-            return back()->with('success','Car information has been added successfuly ');
+            return redirect('/cars')->with('success','Car information has been added successfuly ');
         }else{
             return back()->with('danger','image not selected');
         }
@@ -102,6 +102,13 @@ class CarController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $car = Car::find($id);
+        if($car != null)
+        {
+            $car->delete();
+            return back()->with('success','Car information has been deleted successfuly');
+        }else{
+            return back()->with('danger','You can`t delete this information');
+        }
     }
 }
