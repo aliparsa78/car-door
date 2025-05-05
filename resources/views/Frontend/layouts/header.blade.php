@@ -35,7 +35,9 @@
                                 <li><a href="#">{{Auth::user()->name}}</a>
                                     <ul>
                                         <li><a href="car-left-sidebar.html">Profile</a></li>
-                                        <li><a href="car-right-sidebar.html">Dashboard</a></li>
+                                        @if(Auth::user()->user_type==='admin')
+                                        <li><a href="dashboard">Dashboard</a></li>
+                                        @endif
                                         <li><a id="logout-btn" href="#">Sign Out</a>
                                             <form id="logout-form" action="{{route('logout')}}" method="POST" style="display:none">
                                                 @csrf

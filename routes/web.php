@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarCategoryController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\FounderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,8 @@ use App\Http\Controllers\CarController;
 |
 */
 
-Route::get('/', function () {
-    return view('Frontend.index');
-});
+Route::get('/', [UserController::class,'index']);
+Route::get('/choose_by_category',[UserController::class,'index']);
 Route::get('/404',function(){
     return view('/404');
 });
@@ -38,4 +38,5 @@ Route::middleware(['auth','user'])->group(function(){
 Route::middleware(['auth','admin'])->group(function(){
     Route::resource('car_category',CarCategoryController::class);
     Route::resource('cars',CarController::class);
+    Route::resource('founder',FounderController::class);
 });

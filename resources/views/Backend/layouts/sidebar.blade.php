@@ -90,9 +90,9 @@
             </a>
             <div class="collapse" id="form">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{route('car_category.create')}}">Add Car Category</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('car_category.create')}}">Add Car Ca tegory</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('cars.create')}}">Add Car</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('founder.create')}}">Founders </a></li>
               </ul>
             </div>
           </li>

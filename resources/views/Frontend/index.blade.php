@@ -8,7 +8,7 @@
     <!--=== Favicon ===-->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-    <title>Cardoor - Car Rental HTML Template</title>
+    <title>Cardoor - Car Rental</title>
 
     <!--=== Bootstrap CSS ===-->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -331,12 +331,11 @@
                             <div class="col-lg-3">
                                 <!-- Choose Filtering Menu Start -->
                                 <div class="home2-car-filter">
-                                    <a href="#" data-filter="*" class="active">all</a>
-                                    <a href="#" data-filter=".con">Conver</a>
-                                    <a href="#" data-filter=".hat">Truck</a>
-                                    <a href="#" data-filter=".mpv">MPV</a>
-                                    <a href="#" data-filter=".sedan">Sedan</a>
-                                    <a href="#" data-filter=".suv">SUV</a>
+                                    <form action="choose_by_category" id="myform">
+                                    @foreach($categories as $category)
+                                    <a href="#" name="category" value="{{$category->id}}" onclick="document.getElementById('myform').submit(); return false;">{{$category->name}}</a>
+                                    @endforeach
+                                    </form>
                                 </div>
                                 <!-- Choose Filtering Menu End -->
                             </div>
@@ -346,11 +345,12 @@
                                 <div class="row popular-car-gird">
 
                                     <!-- Single Popular Car Start -->
+                                     @foreach($cars as $car)
                                     <div class="col-lg-6 col-md-6 con suv mpv">
                                         <div class="single-popular-car">
                                             <div class="p-car-thumbnails">
                                                 <a class="car-hover" href="assets/img/car/car-1.jpg">
-                                                    <img src="assets/img/car/car-1.jpg" alt="JSOFT">
+                                                    <img src="{{asset('storage/CarsImage/'.$car->photo)}}" alt="JSOFT">
                                                 </a>
                                             </div>
 
@@ -370,88 +370,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                     <!-- Single Popular Car End -->
 
-                                    <!-- Single Popular Car Start -->
-                                    <div class="col-lg-6 col-md-6 hat sedan">
-                                        <div class="single-popular-car">
-                                            <div class="p-car-thumbnails">
-                                                <a class="car-hover" href="assets/img/car/car-2.jpg">
-                                                    <img src="assets/img/car/car-2.jpg" alt="JSOFT">
-                                                </a>
-                                            </div>
-
-                                            <div class="p-car-content">
-                                                <h3>
-                                                    <a href="#">Dodge Ram 1500</a>
-                                                    <span class="price"><i class="fa fa-tag"></i> $55/day</span>
-                                                </h3>
-
-                                                <h5>HATCHBACK</h5>
-
-                                                <div class="p-car-feature">
-                                                    <a href="#">2017</a>
-                                                    <a href="#">manual</a>
-                                                    <a href="#">AIR CONDITION</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single Popular Car End -->
-
-                                    <!-- Single Popular Car Start -->
-                                    <div class="col-lg-6 col-md-6 suv con mpv">
-                                        <div class="single-popular-car">
-                                            <div class="p-car-thumbnails">
-                                                <a class="car-hover" href="assets/img/car/car-3.jpg">
-                                                   <img src="assets/img/car/car-3.jpg" alt="JSOFT">
-                                                </a>
-                                            </div>
-
-                                            <div class="p-car-content">
-                                                <h3>
-                                                    <a href="#">Dodge Ram 1500</a>
-                                                    <span class="price"><i class="fa fa-tag"></i> $55/day</span>
-                                                </h3>
-
-                                                <h5>HATCHBACK</h5>
-
-                                                <div class="p-car-feature">
-                                                    <a href="#">2017</a>
-                                                    <a href="#">manual</a>
-                                                    <a href="#">AIR CONDITION</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single Popular Car End -->
-
-                                    <!-- Single Popular Car Start -->
-                                    <div class="col-lg-6 col-md-6 con hat">
-                                        <div class="single-popular-car">
-                                            <div class="p-car-thumbnails">
-                                                <a class="car-hover" href="assets/img/car/car-4.jpg">
-                                                    <img src="assets/img/car/car-4.jpg" alt="JSOFT">
-                                                </a>
-                                            </div>
-
-                                            <div class="p-car-content">
-                                                <h3>
-                                                    <a href="#">Dodge Ram 1500</a>
-                                                    <span class="price"><i class="fa fa-tag"></i> $55/day</span>
-                                                </h3>
-
-                                                <h5>HATCHBACK</h5>
-
-                                                <div class="p-car-feature">
-                                                    <a href="#">2017</a>
-                                                    <a href="#">manual</a>
-                                                    <a href="#">AIR CONDITION</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single Popular Car End -->
+                                
                                 </div>
                                 <!-- Choose Cars Content-wrap -->
                             </div>
