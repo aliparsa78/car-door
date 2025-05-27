@@ -27,12 +27,12 @@
                       
                       <div class="form-group">
                         <label for="exampleInputEmail3">Founder Name</label>
-                        <input type="text" class="form-control" name="name" id="exampleInputEmail3" placeholder="Car Name" required>
+                        <input type="text" class="form-control" name="name" id="exampleInputEmail3" placeholder="Founder Name" required>
                         @error('name')  <span class="text-danger">{{$message}}</span> @enderror
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Last Name</label>
-                        <input type="text" class="form-control" name="lastname" id="exampleInputPassword4" placeholder="Car Model" required>
+                        <input type="text" class="form-control" name="lastname" id="exampleInputPassword4" placeholder="Founder last name" required>
                         @error('lastname') <span class="text-danger">{{$message}}</span> @enderror
                       </div>
                   

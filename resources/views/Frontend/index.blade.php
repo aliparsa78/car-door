@@ -31,7 +31,24 @@
     <!--=== Responsive CSS ===-->
     <link href="assets/css/responsive.css" rel="stylesheet">
 </head>
-
+<style>
+    .submit-btn{
+        width: 90%;
+         margin-bottom: 1rem;
+          border-radius: 5px; 
+           cursor: pointer; 
+          font-weight: bold;
+           padding: 0.5rem 0.5rem;
+    }
+    .submit-btn:hover{
+        color: white;
+        background: #ffc107;
+        delay: 0.3s;
+    }
+    #founder{
+        display: inline-block; text-align: center; cursor: pointer;
+    }
+</style>
 <body class="loader-active">
 
     <!--== Preloader Area Start ==-->
@@ -138,39 +155,7 @@
             </div>
 
             <!-- About Fretutes Start -->
-            <div class="about-feature-area">
-                <div class="row">
-                    <!-- Single Fretutes Start -->
-                    <div class="col-lg-4">
-                        <div class="about-feature-item active">
-                            <i class="fa fa-car"></i>
-                            <h3>ALL BRANDS</h3>
-                            <p>Loremed ipsumed is a compnayes odsoyel dolor sit amet, consectetur adipisicing elit. Nesciunted all of.</p>
-                        </div>
-                    </div>
-                    <!-- Single Fretutes End -->
-
-                    <!-- Single Fretutes Start -->
-                    <div class="col-lg-4">
-                        <div class="about-feature-item">
-                            <i class="fa fa-car"></i>
-                            <h3>ALL BRANDS</h3>
-                            <p>Loremed ipsumed is a compnayes odsoyel dolor sit amet, consectetur adipisicing elit. Nesciunted all of.</p>
-                        </div>
-                    </div>
-                    <!-- Single Fretutes End -->
-
-                    <!-- Single Fretutes Start -->
-                    <div class="col-lg-4">
-                        <div class="about-feature-item">
-                            <i class="fa fa-car"></i>
-                            <h3>ALL BRANDS</h3>
-                            <p>Loremed ipsumed is a compnayes odsoyel dolor sit amet, consectetur adipisicing elit. Nesciunted all of.</p>
-                        </div>
-                    </div>
-                    <!-- Single Fretutes End -->
-                </div>
-            </div>
+          
             <!-- About Fretutes End -->
         </div>
     </section>
@@ -317,7 +302,7 @@
                     <div class="section-title  text-center">
                         <h2>Choose your Car</h2>
                         <span class="title-line"><i class="fa fa-car"></i></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>Our company will lead you to get your best services of cars.</p>
                     </div>
                 </div>
                 <!-- Section Title End -->
@@ -329,12 +314,16 @@
                     <div class="choose-ur-cars">
                         <div class="row">
                             <div class="col-lg-3">
+                                <h4>Categoryies</h4> <br>
                                 <!-- Choose Filtering Menu Start -->
                                 <div class="home2-car-filter">
-                                    <form action="choose_by_category" id="myform">
-                                    @foreach($categories as $category)
-                                    <a href="#" name="category" value="{{$category->id}}" onclick="document.getElementById('myform').submit(); return false;">{{$category->name}}</a>
-                                    @endforeach
+                                    <form action="/" id="myform">
+                                        <button type="submit" name="category" class="submit-btn" value="all"  style="font-size: 1rem;">AllCategories</button>
+
+                                        @foreach($categories as $category)
+                                        <button type="submit" name="category" class="submit-btn" value="{{$category->id}}" >{{$category->name}}</button>
+                                        </a>
+                                        @endforeach
                                     </form>
                                 </div>
                                 <!-- Choose Filtering Menu End -->
@@ -346,7 +335,7 @@
 
                                     <!-- Single Popular Car Start -->
                                      @foreach($cars as $car)
-                                    <div class="col-lg-6 col-md-6 con suv mpv">
+                                    <div class="car  col-lg-6 col-md-6 con suv mpv" data-category="{{$car->category_id}}">
                                         <div class="single-popular-car">
                                             <div class="p-car-thumbnails">
                                                 <a class="car-hover" href="assets/img/car/car-1.jpg">
@@ -356,17 +345,19 @@
 
                                             <div class="p-car-content">
                                                 <h3>
-                                                    <a href="#">Dodge Ram 1500</a>
-                                                    <span class="price"><i class="fa fa-tag"></i> $55/day</span>
+                                                    <a href="#">{{$car->car_name}}</a>
+                                                    <span class="price"><i class="fa fa-tag"></i> ${{$car->price_perday}}/day</span>
                                                 </h3>
 
-                                                <h5>HATCHBACK</h5>
+                                                <h5>{{$car->category->name}}</h5>
 
                                                 <div class="p-car-feature">
-                                                    <a href="#">2017</a>
-                                                    <a href="#">manual</a>
-                                                    <a href="#">AIR CONDITION</a>
+                                                    <a href="#" >{{$car->car_model}}</a>
+                                                    <a href="#">{{$car->car_color}}</a>
+                                                    <a href="#">{{$car->city}}</a>
+                                                    <a href="#" class="bg-success text-white" style="float:right">See Details</a>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -405,64 +396,54 @@
                 <div class="col-lg-12">
                     <div class="team-content">
                         <div class="row">
-                            <!-- Team Tab Menu start -->
-                            <div class="col-lg-4">
+                    
+                        <div class="col-lg-4">
                                 <div class="team-tab-menu">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="tab_item_1" data-toggle="tab" href="#team_member_1" role="tab" aria-selected="true">
+                                        @foreach($allfounders as $founder)
+                                        <li class="nav-item row m-4" id="founder">
+                                       
+                                            <form action="/">
+                                                @csrf
+                                                <input type="hidden" name="founder" value="{{$founder->id}}">
+                                                <button type="submit row" style="border: none;">
                                                 <div class="team-mem-icon">
-                                                    <img src="assets/img/team/team-mem-thumb-1.png" alt="JSOFT">
-                                                </div>
-                                                <h5>Raju Ahammad</h5>
-                                            </a>
+                                                        <img src="{{asset('storage/Founders/'.$founder->photo)}}"  alt="JSOFT">
+                                                    </div>
+                                                    
+                                                </button>
+                                                <h5>{{$founder->name}}</h5>
+                                                </form>
+                                            
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab_item_2" data-toggle="tab" href="#team_member_2" role="tab" aria-selected="true">
-                                                <div class="team-mem-icon">
-                                                    <img src="assets/img/team/team-mem-thumb-3.png" alt="JSOFT">
-                                                </div>
-                                                <h5>Vongchong Smith</h5>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab_item_3" data-toggle="tab" href="#team_member_3" role="tab" aria-selected="true">
-                                                <div class="team-mem-icon">
-                                                    <img src="assets/img/team/team-mem-thumb-2.png" alt="JSOFT">
-                                                </div>
-                                                <h5>Alex Tuntuni</h5>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab_item_4" data-toggle="tab" href="#team_member_4" role="tab" aria-selected="true">
-                                                <div class="team-mem-icon">
-                                                    <img src="assets/img/team/team-mem-thumb-4.png" alt="JSOFT">
-                                                </div>
-                                                <h5>Any Anderssen</h5>
-                                            </a>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
-                            <!-- Team Tab Menu End -->
-
+                            <script>
+                                function formsubmit(){
+                                    document.getElementById('founderForm').submit();
+                                }
+                            </script>
+             
                             <!-- Team Tab Content start -->
                             <div class="col-lg-8">
                                 <div class="tab-content" id="myTabContent">
                                     <!-- Single Team  start -->
+                                    @foreach($founders as $founder)
                                     <div class="tab-pane fade show active" id="team_member_1" role="tabpanel" aria-labelledby="tab_item_1">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="team-member-pro-pic">
-                                                    <img src="assets/img/team/team-mem-1.png" alt="JSOFT">
+                                                    <img src="{{asset('storage/Founders/'.$founder->photo)}}" alt="JSOFT">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="team-member-info text-center">
-                                                    <h4>Raju Ahammad</h4>
+                                                    <h4>{{$founder->name}}</h4>
                                                     <h5>Developer</h5>
                                                     <span class="quote-icon"><i class="fa fa-quote-left"></i></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sollicitudin fermentum dolor. Nunc nec augue urna. Cras varius orci vitae lacinia efficitur.</p>
+                                                    <p>{{$founder->description}}</p>
                                                     <div class="team-social-icon">
                                                         <a href="#"><i class="fa fa-facebook"></i></a>
                                                         <a href="#"><i class="fa fa-twitter"></i></a>
@@ -474,88 +455,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                     <!-- Single Team  End -->
 
-                                    <!-- Single Team  start -->
-                                    <div class="tab-pane fade" id="team_member_2" role="tabpanel" aria-labelledby="tab_item_2">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="team-member-pro-pic">
-                                                    <img src="assets/img/team/team-mem-3.png" alt="JSOFT">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="team-member-info text-center">
-                                                    <h4>Vongchong Smith</h4>
-                                                    <h5>Designer</h5>
-                                                    <span class="quote-icon"><i class="fa fa-quote-left"></i></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sollicitudin fermentum dolor. Nunc nec augue urna. Cras varius orci vitae lacinia efficitur.</p>
-                                                    <div class="team-social-icon">
-                                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                                                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single Team  End -->
-
-                                    <!-- Single Team  start -->
-                                    <div class="tab-pane fade" id="team_member_3" role="tabpanel" aria-labelledby="tab_item_3">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="team-member-pro-pic">
-                                                    <img src="assets/img/team/team-mem-2.png" alt="JSOFT">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="team-member-info text-center">
-                                                    <h4>Alex Tuntuni</h4>
-                                                    <h5>Marketer</h5>
-                                                    <span class="quote-icon"><i class="fa fa-quote-left"></i></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sollicitudin fermentum dolor. Nunc nec augue urna. Cras varius orci vitae lacinia efficitur.</p>
-                                                    <div class="team-social-icon">
-                                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                                                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single Team  End -->
-
-                                    <!-- Single Team  start -->
-                                    <div class="tab-pane fade" id="team_member_4" role="tabpanel" aria-labelledby="tab_item_4">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="team-member-pro-pic">
-                                                    <img src="assets/img/team/team-mem-4.png" alt="JSOFT">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="team-member-info text-center">
-                                                    <h4>Any Anderssen</h4>
-                                                    <h5>Manager</h5>
-                                                    <span class="quote-icon"><i class="fa fa-quote-left"></i></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sollicitudin fermentum dolor. Nunc nec augue urna. Cras varius orci vitae lacinia efficitur.</p>
-                                                    <div class="team-social-icon">
-                                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                                                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single Team  End -->
+                                   
                                 </div>
                             </div>
                             <!-- Team Tab Content End -->

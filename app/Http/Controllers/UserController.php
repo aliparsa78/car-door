@@ -6,20 +6,30 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\CarCategory;
 use App\Models\Car;
+use App\Models\Founder;
 
 class UserController extends Controller
 {
     public function index(Request $request)
     {
         if( !Auth::user()  ||Auth::user()->user_type==='user' ){
-            $cars = Car::when($request->category, function($query) use ($request){
-                $query->where('category_id',$request->category);
-            })->get();
+            $categories = CarCategory::all();
+           if($request->has('category') && $request->category != 'all')
+           {
+            $cars = Car::where('category_id',$request->category)->get();
+            
+           }else {
 
+               $cars = Car::all();
+           }
+        
+           if($request->has('founder')){
+            
+                $founders = Founder::where('id',$request->founder)->get();
+           }
 
-
-            $categories = CarCategory::get();
-            return view('Frontend.index',compact('cars','categories'));
+            $allfounders = Founder::get();
+            return view('Frontend.index',compact('cars','categories','allfounders','founders'));
         }else{
            
             return view('Backend.index');

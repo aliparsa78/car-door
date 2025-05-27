@@ -18,7 +18,7 @@ use App\Http\Controllers\FounderController;
 */
 
 Route::get('/', [UserController::class,'index']);
-Route::get('/choose_by_category',[UserController::class,'index']);
+Route::get('/founder',[UserController::class,'index']);
 Route::get('/404',function(){
     return view('/404');
 });

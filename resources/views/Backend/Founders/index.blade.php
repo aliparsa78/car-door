@@ -26,7 +26,7 @@
               <div class="col-lg-11 grid-margin stretch-card pr-4 ">
                 <div class="card ">
                     <div class="card-header">
-                  <a href="{{route('cars.create')}}" class="text-right  btn btn-info" style=" float:right; margin-right: 4rem;"> <i class="mdi mdi-car"></i> Add new Car</a>
+                  <a href="{{route('founder.create')}}" class="text-right  btn btn-info" style=" float:right; margin-right: 4rem;"> <i class="mdi mdi-car"></i> Add new Founder</a>
 
                   <h4 class="card-title">Founders table</h4>
                     </div>
@@ -52,7 +52,7 @@
                             <td> {{$id++}} </td>
                             <td> {{$founder->name}} </td>
                             <td> {{$founder->lastname}} </td>
-                            <td> <img src="{{asset('storage/Founders/'.$founder->photo)}}" style="width: 60px; height: 60px" alt=""> </td>
+                            <td> <img src="{{asset('storage/Founders/'.$founder->photo)}}" style="width: 100px; height: 100px" alt=""> </td>
                             <td style="max-width: 200px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap;"> {{$founder->description}} </td>
                             
                             <td> <a href="{{route('founder.edit',$founder->id)}}" class="btn btn-info">Edit</a> </td>

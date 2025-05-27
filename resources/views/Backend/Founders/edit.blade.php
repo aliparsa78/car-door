@@ -27,12 +27,12 @@
                         @method('put')
                       <div class="form-group">
                         <label for="exampleInputEmail3">Founder Name</label>
-                        <input type="text" class="form-control" name="name" id="exampleInputEmail3" value="{{$founder->name}}" required>
+                        <input type="text" class="form-control" name="name" id="exampleInputEmail3" value="{{$founder->name}}" >
                         @error('name')  <span class="text-danger">{{$message}}</span> @enderror
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Last Name</label>
-                        <input type="text" class="form-control" name="lastname" id="exampleInputPassword4" value="{{$founder->lastname}}" required>
+                        <input type="text" class="form-control" name="lastname" id="exampleInputPassword4" value="{{$founder->lastname}}" >
                         @error('lastname') <span class="text-danger">{{$message}}</span> @enderror
                       </div>
                   
@@ -41,14 +41,14 @@
                         <label>File upload</label>
                         <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                          <input type="file" class="form-control file-upload-info" name="image"  placeholder="Upload Image" required>
+                          <input type="file" class="form-control file-upload-info" name="image"  placeholder="Upload Image" >
                           
                         </div>
                         @error('image') <span class="text-danger">{{$message}}</span> @enderror
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea1">Descriptions </label>
-                        <textarea class="form-control" name="description" id="exampleTextarea1" rows="4" required > {{$founder->description}}</textarea>
+                        <textarea class="form-control" name="description" id="exampleTextarea1" rows="4"  > {{$founder->description}}</textarea>
                         @error('description') <span class="text-danger">{{$message}}</span> @enderror
 
                       </div>

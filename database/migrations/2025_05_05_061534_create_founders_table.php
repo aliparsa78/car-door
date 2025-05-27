@@ -16,6 +16,7 @@ return new class extends Migration
             $table->char('name',32);
             $table->char('lastname',32);
             $table->string('description');
+            $table->char('Carear',64);
             $table->string('photo');
             $table->timestamps();
         });
