@@ -32,6 +32,7 @@ class FounderController extends Controller
         $founder = new Founder();
         $founder->name = $request->name;
         $founder->lastname = $request->lastname;
+        $founder->career = $request->career;
         $founder->description = $request->description;
         if($request->hasFile('image'))
         {
@@ -39,9 +40,9 @@ class FounderController extends Controller
             $filename = time().'.'.$image->getClientOriginalExtension();
             $filepath = $image->storeAs('Founders',$filename,'public');
             $founder->photo = $filename;
-            $founder->save();
-            return redirect('/founder')->with('success','Founder added successfuly !');
         }
+        $founder->save();
+        return redirect('/founder')->with('success','Founder added successfuly !');
         
     }
 
@@ -70,6 +71,7 @@ class FounderController extends Controller
         $founder =  Founder::find($id);
         $founder->name = $request->name;
         $founder->lastname = $request->lastname;
+        $founder->career = $request->career;
         $founder->description = $request->description;
         if($request->hasFile('image'))
         {

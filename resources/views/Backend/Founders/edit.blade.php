@@ -47,6 +47,12 @@
                         @error('image') <span class="text-danger">{{$message}}</span> @enderror
                       </div>
                       <div class="form-group">
+                        <label for="exampleTextarea1">Career </label>
+                        <input type="text" class="form-control" name="career" value="{{$founder->career}}" > 
+                        @error('career') <span class="text-danger">{{$message}}</span> @enderror
+
+                      </div>
+                      <div class="form-group">
                         <label for="exampleTextarea1">Descriptions </label>
                         <textarea class="form-control" name="description" id="exampleTextarea1" rows="4"  > {{$founder->description}}</textarea>
                         @error('description') <span class="text-danger">{{$message}}</span> @enderror

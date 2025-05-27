@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarCategoryController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\FounderController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,5 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::resource('car_category',CarCategoryController::class);
     Route::resource('cars',CarController::class);
     Route::resource('founder',FounderController::class);
+    Route::resource('service',ServiceController::class);
 });

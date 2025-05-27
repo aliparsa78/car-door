@@ -279,7 +279,7 @@
                                         <i class="fa fa-bank"></i>
                                     </div>
                                     <div class="funfact-content">
-                                        <p><span class="counter">50</span>+</p>
+                                        <p><span class="counter">5</span>+</p>
                                         <h4>office in cities</h4>
                                     </div>
                                 </div>

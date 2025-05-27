@@ -93,6 +93,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{route('car_category.create')}}">Add Car Ca tegory</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('cars.create')}}">Add Car</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('founder.create')}}">Founders </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('service.create')}}">Add Service </a></li>
               </ul>
             </div>
           </li>

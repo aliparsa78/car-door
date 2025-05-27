@@ -20,12 +20,14 @@ class UserController extends Controller
             
            }else {
 
-               $cars = Car::all();
+               $cars = Car::take(4)->get();
            }
         
            if($request->has('founder')){
             
                 $founders = Founder::where('id',$request->founder)->get();
+           }else{
+                $founders = Founder::take(1)->get();
            }
 
             $allfounders = Founder::get();
