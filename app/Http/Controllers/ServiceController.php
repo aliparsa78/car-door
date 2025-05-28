@@ -84,6 +84,6 @@ class ServiceController extends Controller
     {
         $founder = Service::find($id);
         $founder->delete();
-        return back()->with('success','Service deleted succesfuly !');
+        return back()->with('danger','Service deleted succesfuly !');
     }
 }

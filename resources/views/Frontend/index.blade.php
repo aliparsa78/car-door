@@ -172,7 +172,7 @@
                     <div class="section-title  text-center">
                         <h2>Our Services</h2>
                         <span class="title-line"><i class="fa fa-car"></i></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p> We provide these facilities for our customers.</p>
                     </div>
                 </div>
                 <!-- Section Title End -->
@@ -183,52 +183,15 @@
 				<div class="col-lg-11 m-auto text-center">
 					<div class="service-container-wrap">
 						<!-- Single Service Start -->
+                         @foreach($services as $service)
 						<div class="service-item">
-							<i class="fa fa-taxi"></i>
-							<h3>RENTAL CAR</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit admollitia.</p>
+							<img src="{{asset('storage/Service/'.$service->icon)}}" style="width: 100px;height: 100px; margin: 0 auto;" alt="">
+							<h3>{{$service->service}}</h3>
+							<p>{{$service->description}}</p>
 						</div>
+                        @endforeach
 						<!-- Single Service End -->
 
-						<!-- Single Service Start -->
-						<div class="service-item">
-							<i class="fa fa-cog"></i>
-							<h3>CAR REPAIR</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit admollitia.</p>
-						</div>
-						<!-- Single Service End -->
-
-						<!-- Single Service Start -->
-						<div class="service-item">
-							<i class="fa fa-map-marker"></i>
-							<h3>TAXI SERVICE</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit admollitia.</p>
-						</div>
-						<!-- Single Service End -->
-
-						<!-- Single Service Start -->
-						<div class="service-item">
-							<i class="fa fa-life-ring"></i>
-							<h3>life insurance</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit admollitia.</p>
-						</div>
-						<!-- Single Service End -->
-
-						<!-- Single Service Start -->
-						<div class="service-item">
-							<i class="fa fa-bath"></i>
-							<h3>car wash</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit admollitia.</p>
-						</div>
-						<!-- Single Service End -->
-
-						<!-- Single Service Start -->
-						<div class="service-item">
-							<i class="fa fa-phone"></i>
-							<h3>call driver</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit admollitia.</p>
-						</div>
-						<!-- Single Service End -->
 					</div>
 				</div>
 			</div>
@@ -420,11 +383,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <script>
-                                function formsubmit(){
-                                    document.getElementById('founderForm').submit();
-                                }
-                            </script>
+                            
              
                             <!-- Team Tab Content start -->
                             <div class="col-lg-8">

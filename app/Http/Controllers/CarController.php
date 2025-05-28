@@ -116,7 +116,7 @@ class CarController extends Controller
         if($car != null)
         {
             $car->delete();
-            return back()->with('success','Car information has been deleted successfuly');
+            return back()->with('danger','Car information has been deleted successfuly');
         }else{
             return back()->with('danger','You can`t delete this information');
         }

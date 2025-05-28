@@ -93,7 +93,7 @@ class FounderController extends Controller
         if($founder)
         {
             $founder->delete();
-            return back()->with('success','Founder Deleted Successfuly ');
+            return back()->with('danger','Founder Deleted Successfuly ');
         }else{
             return back()->with('danger','Something went wrong !');
         }

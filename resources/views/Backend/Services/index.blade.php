@@ -26,7 +26,7 @@
               <div class="col-lg-11 grid-margin stretch-card pr-4 ">
                 <div class="card ">
                     <div class="card-header">
-                  <a href="{{route('founder.create')}}" class="text-right  btn btn-info" style=" float:right; margin-right: 4rem;"> <i class="mdi mdi-car"></i> Add new Founder</a>
+                  <a href="{{route('service.create')}}" class="text-right  btn btn-info" style=" float:right; margin-right: 4rem;"> <i class="mdi mdi-plus"></i> Add new Service</a>
 
                   <h4 class="card-title">Services table</h4>
                     </div>

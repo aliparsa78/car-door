@@ -7,6 +7,7 @@ use Auth;
 use App\Models\CarCategory;
 use App\Models\Car;
 use App\Models\Founder;
+use App\Models\Service;
 
 class UserController extends Controller
 {
@@ -31,7 +32,10 @@ class UserController extends Controller
            }
 
             $allfounders = Founder::get();
-            return view('Frontend.index',compact('cars','categories','allfounders','founders'));
+
+            // Service
+            $services = Service::get();
+            return view('Frontend.index',compact('cars','categories','allfounders','founders','services'));
         }else{
            
             return view('Backend.index');

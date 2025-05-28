@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   </head>
   <body>
@@ -29,8 +30,28 @@
       @include('Backend.layouts.sidebar')
       
       @include('Backend.layouts.header')
-        
-          @yield('content')
+      @yield('content')
+
+      @if(session('success'))
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{session('success')}}',
+            confirmButtonText: 'Good'
+          })
+        </script>
+        @endif
+        @if(session('danger'))
+        <script>
+          Swal.fire({
+            icon: 'error',
+            title: 'Danger!',
+            text: '{{session('danger')}}',
+            confirmButtonText: 'Good'
+          })
+        </script>
+        @endif
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           
