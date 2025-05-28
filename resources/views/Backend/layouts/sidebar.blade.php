@@ -110,6 +110,8 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="car_category">Car Category</a></li>
                 <li class="nav-item"> <a class="nav-link" href="cars"> Cars </a></li>
+                <li class="nav-item"> <a class="nav-link" href="founder"> Founders </a></li>
+                <li class="nav-item"> <a class="nav-link" href="service"> Services </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
               </ul>
             </div>

@@ -55,7 +55,7 @@
                             <td> {{$founder->lastname}} </td>
                             <td> <img src="{{asset('storage/Founders/'.$founder->photo)}}" style="width: 100px; height: 100px" alt=""> </td>
                             <td> {{$founder->career}} </td>
-                            <td style="max-width: 200px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap;"> {{$founder->description}} </td>
+                            <td style="max-width: 200px; white-space: normal;"> {{$founder->description}} </td>
                             
                             <td> <a href="{{route('founder.edit',$founder->id)}}" class="btn btn-info">Edit</a> </td>
                             <td>

@@ -55,7 +55,8 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $founder = Service::find($id);
+        return view('Backend/Services/edit',compact('founder'));
     }
 
     /**
@@ -63,7 +64,17 @@ class ServiceController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $serice =  Service::find($id);
+        $serice->service = $request->service;
+        $serice->description = $request->description;
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $filepath = $image->storeAs('Service',$filename,'public');
+            $serice->icon = $filename;
+        }
+        $serice->update();
+        return redirect('/service')->with('success','Service updated successfuly !');
     }
 
     /**
@@ -71,6 +82,8 @@ class ServiceController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $founder = Service::find($id);
+        $founder->delete();
+        return back()->with('success','Service deleted succesfuly !');
     }
 }
