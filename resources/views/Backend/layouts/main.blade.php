@@ -48,7 +48,7 @@
             icon: 'error',
             title: 'Danger!',
             text: '{{session('danger')}}',
-            confirmButtonText: 'Good'
+            confirmButtonText: 'Got it'
           })
         </script>
         @endif

@@ -55,8 +55,8 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        $founder = Service::find($id);
-        return view('Backend/Services/edit',compact('founder'));
+        $service = Service::find($id);
+        return view('Backend/Services/edit',compact('service'));
     }
 
     /**
@@ -67,6 +67,7 @@ class ServiceController extends Controller
         $serice =  Service::find($id);
         $serice->service = $request->service;
         $serice->description = $request->description;
+        $serice->status = $request->status;
         if($request->hasFile('image')){
             $image = $request->image;
             $filename = time().'.'.$image->getClientOriginalExtension();

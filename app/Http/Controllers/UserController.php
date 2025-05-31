@@ -34,7 +34,7 @@ class UserController extends Controller
             $allfounders = Founder::get();
 
             // Service
-            $services = Service::get();
+            $services = Service::where('status','active')->get();
             return view('Frontend.index',compact('cars','categories','allfounders','founders','services'));
         }else{
            

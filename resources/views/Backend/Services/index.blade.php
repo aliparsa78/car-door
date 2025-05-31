@@ -40,6 +40,7 @@
                             <th> Service   </th>
                             <th> Icon </th>
                             <th> Discriptions </th>
+                            <th> status </th>
                             <th> Edit </th>
                             <th> Delete </th>
                           </tr>
@@ -52,6 +53,7 @@
                             <td> {{$service->service}} </td>
                             <td> <img src="{{asset('storage/Service/'.$service->icon)}}" style="width: 100px; height: 100px" alt=""> </td>
                             <td style=" width: 300px; white-space: normal;">{{$service->description}}</td>                            
+                            <td class="{{$service->status=='active'?'text-success' : 'text-danger'}}">{{$service->status}}</td>                            
                             <td> <a href="{{route('service.edit',$service->id)}}" class="btn btn-info">Edit</a> </td>
                             <td>
                                 <form action="{{route('service.destroy',$service->id)}}" method="post">
