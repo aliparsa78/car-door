@@ -12,8 +12,9 @@
                                 <p>Lorem ipsum dolored is a sit ameted consectetur adipisicing elit. Nobis magni assumenda distinctio debitis, eum fuga fugiat error reiciendis.</p>
 
                                 <div class="newsletter-area">
-                                    <form action="index.html">
-                                        <input type="email" placeholder="Subscribe Our Newsletter">
+                                    <form action="subscribe" method="post">
+                                        @csrf
+                                        <input type="email" name="email" placeholder="Subscribe Our Newsletter">
                                         <button type="submit" class="newsletter-btn"><i class="fa fa-send"></i></button>
                                     </form>
                                 </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\CarCategoryController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\FounderController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubscribeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\ServiceController;
 
 Route::get('/', [UserController::class,'index']);
 Route::get('/founder',[UserController::class,'index']);
+Route::post('subscribe',[SubscribeController::class,'index']);
 Route::get('/404',function(){
     return view('/404');
 });

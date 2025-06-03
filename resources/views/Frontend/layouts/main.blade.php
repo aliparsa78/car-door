@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <title>Cardoor - Car Rental HTML Template</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body class="loader-active">
@@ -26,6 +28,26 @@
     <!--== Header Area Start ==-->
     @include('Frontend.layouts.header')
     @yield('content')
+    @if(session('success'))
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{session('success')}}',
+            confirmButtonText: 'Good'
+          })
+        </script>
+        @endif
+        @if(session('danger'))
+        <script>
+          Swal.fire({
+            icon: 'error',
+            title: 'Danger!',
+            text: '{{session('danger')}}',
+            confirmButtonText: 'Got it'
+          })
+        </script>
+        @endif
     <!--== Footer Area Start ==-->
     @include('Frontend.layouts.footer')
     <!--== Footer Area End ==-->
