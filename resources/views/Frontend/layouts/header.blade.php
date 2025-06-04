@@ -1,3 +1,4 @@
+<?php use Illuminate\Support\Facades\Auth;  ?>
 <header id="header-area" class="fixed-top">
        
 
@@ -17,9 +18,9 @@
                     <div class="col-lg-8 d-none d-xl-block">
                         <nav class="mainmenu alignright">
                             <ul>
-                                <li class="active"><a href="#">Home</a>
+                                <li class="active"><a href="/">Home</a>
                                 
-                                <li><a href="about.html">About</a></li>
+                                <li><a href="about">About</a></li>
                                 <li><a href="services.html">services</a></li>
                                 <li><a href="#">Cars</a>
                                     <ul>
