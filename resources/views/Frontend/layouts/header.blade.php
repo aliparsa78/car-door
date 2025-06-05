@@ -21,7 +21,7 @@
                                 <li class="active"><a href="/">Home</a>
                                 
                                 <li><a href="about">About</a></li>
-                                <li><a href="services.html">services</a></li>
+                                <li><a href="services">services</a></li>
                                 <li><a href="#">Cars</a>
                                     <ul>
                                         <li><a href="car-left-sidebar.html">Car Left Sidebar</a></li>

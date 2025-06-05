@@ -73,4 +73,11 @@ class UserController extends Controller
         $founders = Founder::take(4)->get();
         return view('Frontend/about',compact('categories','founders'));
     }
+    public function service()
+    {
+        $services = Service::get();
+        
+
+        return view('Frontend.service',compact('services'));
+    }
 }

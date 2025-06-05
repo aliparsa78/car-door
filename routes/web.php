@@ -23,6 +23,7 @@ Route::get('/', [UserController::class,'index']);
 Route::get('/founder',[UserController::class,'index']);
 Route::post('subscribe',[SubscribeController::class,'index']);
 Route::get('/about',[UserController::class,'about']);
+Route::get('/services',[UserController::class,'service']);
 Route::get('/404',function(){
     return view('/404');
 });
