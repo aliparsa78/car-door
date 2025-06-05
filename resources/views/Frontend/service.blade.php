@@ -56,11 +56,10 @@
                 <?php if($service->id%2==0){
                         ?>
                     <div class="single-service-item">
-                        <div class="service-item-thumb ser-thumb-bg-1"></div>
+                        <div class="service-item-thumb ser-thumb-bg-1" style="background-image: url('{{asset('storage/Service/'.$service->icon)}}');  background-size: cover; width:400px; height: 400px; float: left;"></div>
                         <div class="service-item-content">
-                            
                             <h3>{{$service->service}}</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicingedsedsis elited. Necessitatibus aliquid, architecto ullam esdefugiat quasi! Doloribus eaque quam soluta quae porro reprehenderit edsconsequuntur hic ducimus consequatur, dicta officia excepturi quos, quis voluptatum optio deserunt sit. Totam ab dolorum at, labore quisquamn earum, magni reiciendis officiis dolores nemo nostrum perspiciatis!</p>
+                            <p>{{$service->description}}</p>
                         </div>
                     </div>
                     <!-- Single Services End -->
@@ -70,12 +69,12 @@
 
                     <!-- Single Services Start -->
                     <div class="single-service-item">
-                        <div class="service-item-thumb ser-thumb-bg-2 d-lg-none d-md-block"></div>
+                        <div class="service-item-thumb ser-thumb-bg-2 d-lg d-md-block" style="background-image: url('{{asset('storage/Service/'.$service->icon)}}'); background-size: cover; width:400px; height: 400px; float: right; margin-bottom: 0"></div>
                         <div class="service-item-content">
                          
                             
                             <h3>{{$service->service}}</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicingedsedsis elited. Necessitatibus aliquid, architecto ullam esdefugiat quasi! Doloribus eaque quam soluta quae porro reprehenderit edsconsequuntur hic ducimus consequatur, dicta officia excepturi quos, quis voluptatum optio deserunt sit. Totam ab dolorum at, labore quisquamn earum, magni reiciendis officiis dolores nemo nostrum perspiciatis!</p>
+                            <p>{{$service->description}}</p>
                                 
                         </div>
                         <div class="service-item-thumb ser-thumb-bg-2 d-none d-lg-block d-md-none"></div>
