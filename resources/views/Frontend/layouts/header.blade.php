@@ -1,4 +1,11 @@
-<?php use Illuminate\Support\Facades\Auth;  ?>
+<?php
+ use Illuminate\Support\Facades\Auth; 
+ use App\Models\CarCategory;
+
+ $CarCategories = CarCategory::get();
+  
+ ?>
+
 <header id="header-area" class="fixed-top">
        
 
@@ -18,16 +25,15 @@
                     <div class="col-lg-8 d-none d-xl-block">
                         <nav class="mainmenu alignright">
                             <ul>
-                                <li class="active"><a href="/">Home</a>
+                                <li class="{{request()->is('/') ? 'active' : ''}} "><a href="/">Home</a>
                                 
-                                <li><a href="about">About</a></li>
-                                <li><a href="services">services</a></li>
+                                <li class="{{request()->is('about') ? 'active' : ''}}"><a href="about">About</a></li>
+                                <li class="{{request()->is('service') ? 'active' : ''}}" ><a href="services">services</a></li>
                                 <li><a href="#">Cars</a>
                                     <ul>
-                                        <li><a href="car-left-sidebar.html">Car Left Sidebar</a></li>
-                                        <li><a href="car-right-sidebar.html">Car Right Sidebar</a></li>
-                                        <li><a href="car-without-sidebar.html">Car Without Sidebar</a></li>
-                                        <li><a href="car-details.html">Car Details</a></li>
+                                        @foreach($CarCategories as $car)
+                                        <li><a href="/car_category/{{$car->id}}">{{$car->name}}</a></li>
+                                       @endforeach
                                     </ul>
                                 </li>
                                

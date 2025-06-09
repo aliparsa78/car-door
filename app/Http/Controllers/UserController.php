@@ -80,4 +80,10 @@ class UserController extends Controller
 
         return view('Frontend.service',compact('services'));
     }
+
+    public function car_category($id)
+    {
+        $cars = Car::where('category_id',$id)->get();
+        return view('Frontend.cars',compact('cars'));
+    }
 }

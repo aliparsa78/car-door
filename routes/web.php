@@ -24,6 +24,7 @@ Route::get('/founder',[UserController::class,'index']);
 Route::post('subscribe',[SubscribeController::class,'index']);
 Route::get('/about',[UserController::class,'about']);
 Route::get('/services',[UserController::class,'service']);
+Route::get('/car_category/{id}',[UserController::class,'car_category']);
 Route::get('/404',function(){
     return view('/404');
 });
