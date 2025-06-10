@@ -113,7 +113,7 @@
                 <li class="nav-item"> <a class="nav-link" href="cars"> Cars </a></li>
                 <li class="nav-item"> <a class="nav-link" href="founder"> Founders </a></li>
                 <li class="nav-item"> <a class="nav-link" href="service"> Services </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                <li class="nav-item"> <a class="nav-link" href="contact">Contacts</a></li>
               </ul>
             </div>
           </li>

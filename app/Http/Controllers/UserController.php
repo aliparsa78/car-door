@@ -10,6 +10,7 @@ use App\Models\Founder;
 use App\Models\Service;
 use App\Models\Subscribe;
 use App\Models\User;
+use App\Models\Contact;
 use Carbon\Carbon;
 
 class UserController extends Controller
@@ -85,5 +86,26 @@ class UserController extends Controller
     {
         $cars = Car::where('category_id',$id)->get();
         return view('Frontend.cars',compact('cars'));
+    }
+    public function contact()
+    {
+        return view('Frontend.contact');
+    }
+
+    public function submit_contact(Request $request)
+    {
+        $request->validate([
+            'fullname'=>'required',
+            'subject'=>'required',
+            'email'=>'required',
+            'message'=>'required'
+        ]);
+        $contact = new  Contact();
+        $contact->fullname = $request->fullname;
+        $contact->subject = $request->subject;
+        $contact->email = $request->email;
+        $contact->message = $request->message;
+        $contact->save();
+        return back()->with('success',' Your message has been sent. Thank you !');
     }
 }

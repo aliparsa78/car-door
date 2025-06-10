@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('subscribes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->referances('id')->on('users');
+            
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('email');
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subscribes');
+        //
     }
 };

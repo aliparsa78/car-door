@@ -7,6 +7,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\FounderController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::post('subscribe',[SubscribeController::class,'index']);
 Route::get('/about',[UserController::class,'about']);
 Route::get('/services',[UserController::class,'service']);
 Route::get('/car_category/{id}',[UserController::class,'car_category']);
+Route::get('/contact',[UserController::class,'contact']);
+Route::post('/contact',[UserController::class,'submit_contact']);
 Route::get('/404',function(){
     return view('/404');
 });
@@ -46,4 +49,5 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::resource('cars',CarController::class);
     Route::resource('founder',FounderController::class);
     Route::resource('service',ServiceController::class);
+    Route::get('contact',[ContactController::class,'index']);
 });

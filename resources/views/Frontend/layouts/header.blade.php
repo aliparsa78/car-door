@@ -29,7 +29,7 @@
                                 
                                 <li class="{{request()->is('about') ? 'active' : ''}}"><a href="about">About</a></li>
                                 <li class="{{request()->is('service') ? 'active' : ''}}" ><a href="services">services</a></li>
-                                <li><a href="#">Cars</a>
+                                <li class="{{request()->is('cars' ? 'active' : '')}}" ><a href="#">Cars</a>
                                     <ul>
                                         @foreach($CarCategories as $car)
                                         <li><a href="/car_category/{{$car->id}}">{{$car->name}}</a></li>
@@ -37,7 +37,7 @@
                                     </ul>
                                 </li>
                                
-                                <li><a href="contact.html">Contact</a></li>
+                                <li class="{{request()->is('contact') ? 'active' : ''}}" ><a href="contact">Contact</a></li>
                                 @if(Auth::user())
                                 <li><a href="#">{{Auth::user()->name}}</a>
                                     <ul>
