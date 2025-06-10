@@ -37,7 +37,7 @@
                                     </ul>
                                 </li>
                                
-                                <li class="{{request()->is('contact') ? 'active' : ''}}" ><a href="contact">Contact</a></li>
+                                <li class="{{request()->is('contact_page') ? 'active' : ''}}" ><a href="contact_page">Contact</a></li>
                                 @if(Auth::user())
                                 <li><a href="#">{{Auth::user()->name}}</a>
                                     <ul>

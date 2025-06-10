@@ -26,7 +26,7 @@ Route::post('subscribe',[SubscribeController::class,'index']);
 Route::get('/about',[UserController::class,'about']);
 Route::get('/services',[UserController::class,'service']);
 Route::get('/car_category/{id}',[UserController::class,'car_category']);
-Route::get('/contact',[UserController::class,'contact']);
+Route::get('/contact_page',[UserController::class,'contact']);
 Route::post('/contact',[UserController::class,'submit_contact']);
 Route::get('/404',function(){
     return view('/404');
