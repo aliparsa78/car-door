@@ -12,14 +12,14 @@ class DeleteOldMessages extends Command
      *
      * @var string
      */
-    protected $signature = 'app:delete-old-messages';
+    protected $signature = 'delete:old-messages';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Delete message older than 7 days';
 
     /**
      * Execute the console command.
